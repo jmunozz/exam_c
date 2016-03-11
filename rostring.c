@@ -6,7 +6,7 @@
 /*   By: jmunoz <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/10 16:02:05 by jmunoz            #+#    #+#             */
-/*   Updated: 2016/03/11 18:16:32 by jmunoz           ###   ########.fr       */
+/*   Updated: 2016/03/11 21:05:57 by jmunoz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,15 +47,18 @@ void	ft_rostring(char *s)
 	char	*string;
 	int		len_fw;
 
-	string = len_after_fw(s);
-	if (!*string)
-		ft_putstr(s);
-	while (*string)
+	if (s && *s)
 	{
-		string = ft_putstr(string);
-		write (1, " ", 1);
+		string = len_after_fw(s);
+		if (!*string)
+			ft_putstr(s);
+		while (*string)
+		{
+			string = ft_putstr(string);
+			write (1, " ", 1);
+		}
+		ft_putstr(s);
 	}
-	ft_putstr(s);
 }
 
 int		main(int ac, char **av)
