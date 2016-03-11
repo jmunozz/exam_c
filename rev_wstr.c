@@ -1,53 +1,56 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fprime.c                                           :+:      :+:    :+:   */
+/*   rev_wstr.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmunoz <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/03/10 09:03:39 by jmunoz            #+#    #+#             */
-/*   Updated: 2016/03/10 13:08:57 by jmunoz           ###   ########.fr       */
+/*   Created: 2016/03/10 15:42:06 by jmunoz            #+#    #+#             */
+/*   Updated: 2016/03/10 15:54:20 by jmunoz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
 
-int		ft_is_prime(int n)
+void	ft_putchar(char c)
 {
-	int i;
-	
-	if (n <= 1)
-		return (0);
-	i = 2;
-	while (n % i != 0)
-		i++;
-	return (i);
+	write(1, &c, 1);
 }
 
-void	ft_fprime(int n)
+void	ft_putstr(char *s)
 {
-	int	diviser;
+	while (*s && *s != ' ')
+	{
+		ft_putchar(*s);
+		s++;
+	}
+}
 
-	diviser = ft_is_prime(n);
-	if (diviser == n)
+void	ft_rev_wstr(char *s)
+{
+	int	i;
+
+	i = 0;
+	while (s[i])
+		i++;
+	i -= 1;
+	while (i >= 0)
 	{
-		printf("%d", n);
+		if (s[i] == ' ')
+		{
+			ft_putstr(&s[i + 1]);
+			ft_putchar(' ');
+		}
+		i--;
 	}
-	else if (diviser != 0)
-	{
-		ft_fprime(diviser);
-		printf("*");
-		ft_fprime(n /diviser);
-	}
+	ft_putstr(s);
 }
 
 int		main(int ac, char **av)
 {
-
 	if (ac == 2)
-		ft_fprime(atoi(av[1]));
-	printf("\n");
+		ft_rev_wstr(av[1]);
+	ft_putchar('\n');
 	return (0);
 }

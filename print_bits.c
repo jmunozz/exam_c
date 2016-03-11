@@ -6,13 +6,12 @@
 /*   By: jmunoz <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/10 10:27:01 by jmunoz            #+#    #+#             */
-/*   Updated: 2016/03/10 12:19:17 by jmunoz           ###   ########.fr       */
+/*   Updated: 2016/03/10 12:31:07 by jmunoz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <stdlib.h>
-#include <stdio.h>
 
 void	ft_putchar(char c)
 {
